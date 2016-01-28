@@ -45,6 +45,24 @@ create table horarios(id_horario integer,
                       
                       describe horarios;
                       
-                      
-                        
+create sequence sec_pelicula
+start with 1
+increment by 1
+nomaxvalue;
 
+/*nota del ejercicio anterior 
+en oracle cuando no exista en la informacion de la entidad un primary key natural, deberas incluir uno autogenerado por oracle 
+ejercicio: generar unaseccion en oracle para que lo enlacemos a la tabla pelicula y asi poder generar un primary key auto-incrementado
+uansecuaencia es en oracle un objeto de base de datos:
+otros objetos de base de datos:
+tablas
+disparadores
+procedimientos almacenados
+secuencias
+el siguiente apso es enlazar la re4cien creada secuencia con la tabla pelicula
+notra: solamente se puede asociar una secuencia a una sola tabla
+para asociarla se necesita un nuevo objeto de base de datos este objeto va a ser el que insertara el o los nuevos registros en la tabla pelicula.
+en resumen: jamas se usa un insert into en oracle cuando tienen un primary key auto-generado
+que repercuciones tiene usar esta secuencia sql en ambientes distribuidos 
+sql injection
+este es el hacking mas dificil de erradicar/*
