@@ -66,3 +66,48 @@ en resumen: jamas se usa un insert into en oracle cuando tienen un primary key a
 que repercuciones tiene usar esta secuencia sql en ambientes distribuidos 
 sql injection
 este es el hacking mas dificil de erradicar/*
+
+--sistema de peliculas, sala sera de tarea
+
+create table pelicula (id_pelicula integer,
+                        titulo varchar2(120),
+                        sinopsis varchar2(500),
+                        clasificacion varchar2(5),
+                        constraint pk_id_pelicula primary key(id_pelicula));
+                        
+                        describe pelicula;
+                        
+create table horarios(id_horario integer,
+                      id_pelicula integer,
+                      hprario varchar2(8),
+                      constraint pk_id_horario primary key(id_horario),
+                      constraint fk1_id_pelicula foreign key(id_pelicula) references pelicula(id_pelicula));
+                      
+                      describe horarios;
+                   
+create sequence sec_pelicula
+start with 1
+increment by 1
+nomaxvalue;
+  set serveroutput on; 
+create or replace procedure hola_mundo(nombre in varchar2)
+as
+begin
+--aqui va la logica
+dbms_output.put_line('hola como estas '||nombre);
+end;
+/
+
+begin
+hola_mundo('francisco avila');
+end;           
+/
+
+declare
+valor number;
+begin
+suma(12,8,valor);
+dbms_output.put_line('la suma es '||valor);
+end;
+/
+
